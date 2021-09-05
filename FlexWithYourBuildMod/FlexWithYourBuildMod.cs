@@ -1,21 +1,18 @@
-﻿// JotunnModStub
-// a Valheim mod skeleton using Jötunn
-// 
-// File:    JotunnModStub.cs
-// Project: JotunnModStub
+﻿// File:    FlexWithYourBuildMod.cs
+// Project: FlexWithYourBuildMod
 
 using BepInEx;
+using Jotunn.Managers;
 
-namespace JotunnModStub
+namespace FlexWithYourBuildMod
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
-    //[NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class JotunnModStub : BaseUnityPlugin
     {
-        public const string PluginGUID = "com.jotunn.jotunnmodstub";
-        public const string PluginName = "JotunnModStub";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginGUID = "rueckenschmerzen.flexwithyourbuildmod";
+        public const string PluginName = "FlexWithYourBuild";
+        public const string PluginVersion = "0.0.2";
 
         private void Awake()
         {
@@ -25,9 +22,11 @@ namespace JotunnModStub
             
             // Jotunn comes with its own Logger class to provide a consistent Log style for all mods using it
             Jotunn.Logger.LogInfo("ModStub has landed");
-            
+
             // To learn more about Jotunn's features, go to
             // https://valheim-modding.github.io/Jotunn/tutorials/overview.html
+
+            CommandManager.Instance.AddConsoleCommand(new PrintRessourceUsageCommand());
         }
 
         private void FejdStartup_Awake(On.FejdStartup.orig_Awake orig, FejdStartup self)

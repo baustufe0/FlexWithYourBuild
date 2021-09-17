@@ -20,9 +20,6 @@ namespace FlexWithYourBuildMod
     [BepInDependency(Jotunn.Main.ModGuid)]
     class PrintRessourceUsageCommand : ConsoleCommand
     {
-        private static readonly AccessTools.FieldRef<Pickable, bool> m_picked =
-           AccessTools.FieldRefAccess<Pickable, bool>("m_picked");
-
         public static GameObject TextPanel;
 
         public override string Name => "build_info";
@@ -183,7 +180,6 @@ namespace FlexWithYourBuildMod
             // Toggle input for the player and camera while displaying the GUI
             GUIManager.BlockInput(false);
 
-            // TODO: is that enought? is there no destroy method or something like that?
             TextPanel = null;
         }
 
